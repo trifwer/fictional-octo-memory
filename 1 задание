@@ -1,0 +1,21 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        string J = "ab";
+        string S = "aabbccd";
+        
+        int count = 0;
+        foreach (char c in S)
+        {
+            if (J.Contains(c))
+            {
+                count++;
+            }
+        }
+        
+        Console.WriteLine(count);
+    }
+}
