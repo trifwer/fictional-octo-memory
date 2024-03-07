@@ -1,0 +1,50 @@
+using System;
+
+class TwoIntegers
+{
+    private int num1;
+    private int num2;
+
+    public TwoIntegers(int num1, int num2)
+    {
+        this.num1 = num1;
+        this.num2 = num2;
+    }
+
+    public void Display()
+    {
+        Console.WriteLine("Число 1: " + num1);
+        Console.WriteLine("Число 2: " + num2);
+    }
+
+    public void Modify(int newNum1, int newNum2)
+    {
+        num1 = newNum1;
+        num2 = newNum2;
+    }
+
+    public int FindSum()
+    {
+        return num1 + num2;
+    }
+
+    public int FindMax()
+    {
+        return Math.Max(num1, num2);
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        TwoIntegers twoInts = new TwoIntegers(10, 20);
+        twoInts.Display();
+
+        Console.WriteLine("Сумма чисел: " + twoInts.FindSum());
+        Console.WriteLine("Наибольшее число: " + twoInts.FindMax());
+
+        twoInts.Modify(30123, 404546);
+        twoInts.Display();
+    }
+}
