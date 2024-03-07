@@ -1,0 +1,92 @@
+using System;
+
+class Student
+{
+    private string surname;
+    private DateTime birthdate;
+    private int groupNumber;
+    private int[] grades;
+
+    public Student(string surname, DateTime birthdate, int groupNumber, int[] grades)
+    {
+        this.surname = surname;
+        this.birthdate = birthdate;
+        this.groupNumber = groupNumber;
+        this.grades = grades;
+    }
+
+    public string Surname
+    {
+        get { return surname; }
+        set { surname = value; }
+    }
+
+    public DateTime Birthdate
+    {
+        get { return birthdate; }
+        set { birthdate = value; }
+    }
+
+    public int GroupNumber
+    {
+        get { return groupNumber; }
+        set { groupNumber = value; }
+    }
+
+    public void DisplayInfo()
+    {
+        Console.WriteLine("Фамилия: " + surname);
+        Console.WriteLine("Дата рождения: " + birthdate.ToShortDateString());
+        Console.WriteLine("Номер группы: " + groupNumber);
+        Console.WriteLine("Успеваемость:");
+        foreach (int grade in grades)
+        {
+            Console.WriteLine(grade);
+        }
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        string surname;
+        DateTime birthdate;
+        int groupNumber;
+
+        Console.WriteLine("Введите фамилию студента:");
+        surname = Console.ReadLine();
+
+        Console.WriteLine("Введите дату рождения студента (в формате дд.мм.гггг):");
+        birthdate = DateTime.ParseExact(Console.ReadLine(), "dd.MM.yyyy", null);
+
+        Console.WriteLine("Введите номер группы студента:");
+        groupNumber = int.Parse(Console.ReadLine());
+
+        int[] grades = new int[5];
+        Console.WriteLine("Введите оценки студента (5 штук):");
+        for (int i = 0; i < 5; i++)
+        {
+            grades[i] = int.Parse(Console.ReadLine());
+        }
+
+        Student student = new Student(surname, birthdate, groupNumber, grades);
+
+        Console.WriteLine("\nИнформация о студенте:");
+        student.DisplayInfo();
+
+        Console.WriteLine("\nВведите новую фамилию студента:");
+        student.Surname = Console.ReadLine();
+
+        Console.WriteLine("Введите новую дату рождения студента (в формате дд.мм.гггг):");
+        student.Birthdate = DateTime.ParseExact(Console.ReadLine(), "dd.MM.yyyy", null);
+
+        Console.WriteLine("Введите новый номер группы студента:");
+        student.GroupNumber = int.Parse(Console.ReadLine());
+
+        Console.WriteLine("\nИнформация о студенте после изменений:");
+        student.DisplayInfo();
+
+        Console.ReadLine();
+    }
+}
