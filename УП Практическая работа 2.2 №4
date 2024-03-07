@@ -1,0 +1,50 @@
+using System;
+
+class Counter
+{
+    private int value;
+
+    public Counter()
+    {
+        value = 0;
+    }
+
+    public Counter(int initialValue)
+    {
+        value = initialValue;
+    }
+
+    public int Value
+    {
+        get { return value; }
+    }
+
+    public void Increment()
+    {
+        value++;
+    }
+
+    public void Decrement()
+    {
+        if (value > 0)
+            value--;
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Counter counter1 = new Counter();
+        Console.WriteLine("Counter 1 Value: " + counter1.Value);
+
+        Counter counter2 = new Counter(5);
+        Console.WriteLine("Counter 2 Value: " + counter2.Value);
+
+        counter1.Increment();
+        Console.WriteLine("Counter 1 Value after Increment: " + counter1.Value);
+
+        counter2.Decrement();
+        Console.WriteLine("Counter 2 Value after Decrement: " + counter2.Value);
+    }
+}
