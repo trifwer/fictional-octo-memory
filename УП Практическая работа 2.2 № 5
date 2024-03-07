@@ -1,0 +1,48 @@
+using System;
+
+class MyClass
+{
+    private int число;
+    private string текст;
+
+    public int Число
+    {
+        get { return число; }
+        set { число = value; }
+    }
+
+    public string Текст
+    {
+        get { return текст; }
+        set { текст = value; }
+    }
+
+    public MyClass(int число, string текст)
+    {
+        this.число = число;
+        this.текст = текст;
+    }
+
+    public MyClass()
+    {
+        число = 0;
+        текст = "По умолчанию";
+    }
+
+    ~MyClass()
+    {
+        Console.WriteLine("Объект удаляется.");
+    }
+}
+
+class Программа
+{
+    static void Main(string[] args)
+    {
+        MyClass объект1 = new MyClass(10, "Пока");
+        Console.WriteLine("Объект 1 - 9: " + объект1.Число + ", Привет: " + объект1.Текст);
+
+        MyClass объект2 = new MyClass();
+        Console.WriteLine("Объект 2 - 10: " + объект2.Число + ", Привет: " + объект2.Текст);
+    }
+}
