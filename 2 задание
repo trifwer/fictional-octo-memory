@@ -1,0 +1,49 @@
+using System; 
+using System.Collections.Generic; 
+ 
+class Program 
+{ 
+    static void Main() 
+    { 
+        int[] candidates1 = { 2, 5, 2, 1, 2 }; 
+        int target1 = 5; 
+        Console.WriteLine("Результат для первого набора:"); 
+        FindCombinations(candidates1, target1); 
+ 
+        int[] candidates2 = { 10, 1, 2, 7, 6, 1, 5 }; 
+        int target2 = 8; 
+        Console.WriteLine("\nРезультат для второго набора:"); 
+        FindCombinations(candidates2, target2); 
+    } 
+ 
+    static void FindCombinations(int[] candidates, int target) 
+    { 
+        List<IList<int>> result = new List<IList<int>>(); 
+        Array.Sort(candidates); 
+        Backtrack(result, new List<int>(), candidates, target, 0); 
+ 
+        foreach (var combination in result) 
+        { 
+            Console.WriteLine("[" + string.Join(", ", combination) + "]"); 
+        } 
+    } 
+ 
+    static void Backtrack(List<IList<int>> result, List<int> tempList, int[] candidates, int remain, int start) 
+    { 
+        if (remain < 0) 
+            return; 
+        else if (remain == 0) 
+            result.Add(new List<int>(tempList)); 
+        else 
+        { 
+            for (int i = start; i < candidates.Length; i++) 
+            { 
+                if (i > start && candidates[i] == candidates[i - 1]) 
+                    continue; 
+                tempList.Add(candidates[i]); 
+                Backtrack(result, tempList, candidates, remain - candidates[i], i + 1); 
+                tempList.RemoveAt(tempList.Count - 1); 
+            } 
+        } 
+    } 
+}
