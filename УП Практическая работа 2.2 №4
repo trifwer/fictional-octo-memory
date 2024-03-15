@@ -4,30 +4,31 @@ class Counter
 {
     private int value;
 
+    public int Value
+    {
+        get { return value; }
+        private set { value = value; }
+    }
+
     public Counter()
     {
-        value = 0;
+        Value = 0;
     }
 
     public Counter(int initialValue)
     {
-        value = initialValue;
-    }
-
-    public int Value
-    {
-        get { return value; }
+        Value = initialValue;
     }
 
     public void Increment()
     {
-        value++;
+        Value++;
     }
 
     public void Decrement()
     {
-        if (value > 0)
-            value--;
+        if (Value > 0)
+            Value--;
     }
 }
 
