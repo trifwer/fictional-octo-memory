@@ -2,10 +2,10 @@ using System;
 
 class Worker
 {
-    private string Имя;
-    private string Фамилия;
-    private double Ставка;
-    private int Дни;
+    public string Имя { get; private set; }
+    public string Фамилия { get; private set; }
+    public double Ставка { get; private set; }
+    public int Дни { get; private set; }
 
     public Worker(string имя, string фамилия, double ставка, int дни)
     {
@@ -13,26 +13,6 @@ class Worker
         Фамилия = фамилия;
         Ставка = ставка;
         Дни = дни;
-    }
-
-    public string ПолучитьИмя()
-    {
-        return Имя;
-    }
-
-    public string ПолучитьФамилию()
-    {
-        return Фамилия;
-    }
-
-    public double ПолучитьСтавку()
-    {
-        return Ставка;
-    }
-
-    public int ПолучитьДни()
-    {
-        return Дни;
     }
 
     public double ПолучитьЗарплату()
@@ -45,7 +25,7 @@ class Program
 {
     static void Main()
     {
-        Worker работник = new Worker("Иван", "Иванов", 10.0, 29);
-        Console.WriteLine("Зарплата работника " + работник.ПолучитьИмя() + " " + работник.ПолучитьФамилию() + ": $" + работник.ПолучитьЗарплату());
+        Worker работник = new Worker("Монгуш", "Тайгир", 10.0, 29);
+        Console.WriteLine("Зарплата работника " + работник.Имя + " " + работник.Фамилия + ": $" + работник.ПолучитьЗарплату());
     }
 }
