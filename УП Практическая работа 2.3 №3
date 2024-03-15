@@ -1,0 +1,69 @@
+using System;
+
+class Calculation
+{
+    private string calculationLine;
+
+    public string CalculationLine
+    {
+        get { return calculationLine; }
+    }
+
+    public void SetCalculationLine(string line)
+    {
+        calculationLine = line;
+    }
+
+    public void SetLastSymbolCalculationLine(char symbol)
+    {
+        calculationLine += symbol;
+    }
+
+    public string GetCalculationLine()
+    {
+        return calculationLine;
+    }
+
+    public char GetLastSymbol()
+    {
+        if (!string.IsNullOrEmpty(calculationLine))
+        {
+            return calculationLine[calculationLine.Length - 1];
+        }
+        else
+        {
+            throw new InvalidOperationException("Строка вычисления пуста.");
+        }
+    }
+
+    public void DeleteLastSymbol()
+    {
+        if (!string.IsNullOrEmpty(calculationLine))
+        {
+            calculationLine = calculationLine.Remove(calculationLine.Length - 1);
+        }
+        else
+        {
+            throw new InvalidOperationException("Строка вычисления пуста.");
+        }
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Calculation calculation = new Calculation();
+        calculation.SetCalculationLine("2 + 3 *");
+        Console.WriteLine("Строка вычисления: " + calculation.GetCalculationLine());
+
+        calculation.SetLastSymbolCalculationLine('+');
+        Console.WriteLine("Строка вычисления после добавления последнего символа: " + calculation.GetCalculationLine());
+
+        char lastSymbol = calculation.GetLastSymbol();
+        Console.WriteLine("Последний символ: " + lastSymbol);
+
+        calculation.DeleteLastSymbol();
+        Console.WriteLine("Строка вычисления после удаления последнего символа: " + calculation.GetCalculationLine());
+    }
+}
