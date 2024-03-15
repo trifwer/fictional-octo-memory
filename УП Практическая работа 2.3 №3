@@ -9,7 +9,7 @@ class Calculation
         get { return calculationLine; }
     }
 
-    public void SetCalculationLine(string line)
+    public Calculation(string line)
     {
         calculationLine = line;
     }
@@ -17,11 +17,6 @@ class Calculation
     public void SetLastSymbolCalculationLine(char symbol)
     {
         calculationLine += symbol;
-    }
-
-    public string GetCalculationLine()
-    {
-        return calculationLine;
     }
 
     public char GetLastSymbol()
@@ -53,17 +48,16 @@ class Program
 {
     static void Main(string[] args)
     {
-        Calculation calculation = new Calculation();
-        calculation.SetCalculationLine("2 + 3 *");
-        Console.WriteLine("Строка вычисления: " + calculation.GetCalculationLine());
+        Calculation calculation = new Calculation("2 + 3 *");
+        Console.WriteLine("Строка вычисления: " + calculation.CalculationLine);
 
         calculation.SetLastSymbolCalculationLine('+');
-        Console.WriteLine("Строка вычисления после добавления последнего символа: " + calculation.GetCalculationLine());
+        Console.WriteLine("Строка вычисления после добавления последнего символа: " + calculation.CalculationLine);
 
         char lastSymbol = calculation.GetLastSymbol();
         Console.WriteLine("Последний символ: " + lastSymbol);
 
         calculation.DeleteLastSymbol();
-        Console.WriteLine("Строка вычисления после удаления последнего символа: " + calculation.GetCalculationLine());
+        Console.WriteLine("Строка вычисления после удаления последнего символа: " + calculation.CalculationLine);
     }
 }
