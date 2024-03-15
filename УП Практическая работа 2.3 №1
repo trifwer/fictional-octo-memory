@@ -1,0 +1,31 @@
+using System;
+
+class Worker
+{
+    public string Имя;
+    public string Фамилия;
+    public double Ставка;
+    public int Дни;
+
+    public Worker(string имя, string фамилия, double ставка, int дни)
+    {
+        Имя = имя;
+        Фамилия = фамилия;
+        Ставка = ставка;
+        Дни = дни;
+    }
+
+    public double ПолучитьЗарплату()
+    {
+        return Ставка * Дни;
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        Worker работник = new Worker("Иван", "Иванов", 10.0, 29);
+        Console.WriteLine("Зарплата работника: $" + работник.ПолучитьЗарплату());
+    }
+}
