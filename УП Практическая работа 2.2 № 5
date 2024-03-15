@@ -2,31 +2,19 @@ using System;
 
 class MyClass
 {
-    private int число;
-    private string текст;
+    public int Number { get; set; }
+    public string Text { get; set; }
 
-    public int Число
+    public MyClass(int number, string text)
     {
-        get { return число; }
-        set { число = value; }
-    }
-
-    public string Текст
-    {
-        get { return текст; }
-        set { текст = value; }
-    }
-
-    public MyClass(int число, string текст)
-    {
-        this.число = число;
-        this.текст = текст;
+        Number = number;
+        Text = text;
     }
 
     public MyClass()
     {
-        число = 0;
-        текст = "По умолчанию";
+        Number = 0;
+        Text = "По умолчанию";
     }
 
     ~MyClass()
@@ -35,14 +23,14 @@ class MyClass
     }
 }
 
-class Программа
+class Program
 {
     static void Main(string[] args)
     {
-        MyClass объект1 = new MyClass(10, "Пока");
-        Console.WriteLine("Объект 1 - 9: " + объект1.Число + ", Привет: " + объект1.Текст);
+        MyClass object1 = new MyClass(10, "Пока");
+        Console.WriteLine("Объект 1 - Число: " + object1.Number + ", Текст: " + object1.Text);
 
-        MyClass объект2 = new MyClass();
-        Console.WriteLine("Объект 2 - 10: " + объект2.Число + ", Привет: " + объект2.Текст);
+        MyClass object2 = new MyClass();
+        Console.WriteLine("Объект 2 - Число: " + object2.Number + ", Текст: " + object2.Text);
     }
 }
