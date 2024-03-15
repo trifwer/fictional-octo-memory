@@ -5,32 +5,44 @@ class TwoIntegers
     private int num1;
     private int num2;
 
+    public int Num1
+    {
+        get { return num1; }
+        set { num1 = value; }
+    }
+
+    public int Num2
+    {
+        get { return num2; }
+        set { num2 = value; }
+    }
+
     public TwoIntegers(int num1, int num2)
     {
-        this.num1 = num1;
-        this.num2 = num2;
+        Num1 = num1;
+        Num2 = num2;
     }
 
     public void Display()
     {
-        Console.WriteLine("Число 1: " + num1);
-        Console.WriteLine("Число 2: " + num2);
+        Console.WriteLine("Число 1: " + Num1);
+        Console.WriteLine("Число 2: " + Num2);
     }
 
     public void Modify(int newNum1, int newNum2)
     {
-        num1 = newNum1;
-        num2 = newNum2;
+        Num1 = newNum1;
+        Num2 = newNum2;
     }
 
     public int FindSum()
     {
-        return num1 + num2;
+        return Num1 + Num2;
     }
 
     public int FindMax()
     {
-        return Math.Max(num1, num2);
+        return Math.Max(Num1, Num2);
     }
 }
 
@@ -44,7 +56,7 @@ class Program
         Console.WriteLine("Сумма чисел: " + twoInts.FindSum());
         Console.WriteLine("Наибольшее число: " + twoInts.FindMax());
 
-        twoInts.Modify(30123, 404546);
+        twoInts.Modify(3123, 4546);
         twoInts.Display();
     }
 }
