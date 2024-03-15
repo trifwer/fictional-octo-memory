@@ -2,10 +2,10 @@ using System;
 
 class Worker
 {
-    public string Имя;
-    public string Фамилия;
-    public double Ставка;
-    public int Дни;
+    public string Имя { get; private set; }
+    public string Фамилия { get; private set; }
+    public double Ставка { get; private set; }
+    public int Дни { get; private set; }
 
     public Worker(string имя, string фамилия, double ставка, int дни)
     {
@@ -25,7 +25,8 @@ class Program
 {
     static void Main()
     {
-        Worker работник = new Worker("Иван", "Иванов", 10.0, 29);
-        Console.WriteLine("Зарплата работника: $" + работник.ПолучитьЗарплату());
+        Worker работник = new Worker("Тайгир", "Монгуш", 13.0, 29);
+        double зарплата = работник.ПолучитьЗарплату();
+        Console.WriteLine($"Зарплата работника: ${зарплата}");
     }
 }
