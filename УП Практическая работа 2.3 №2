@@ -1,0 +1,51 @@
+using System;
+
+class Worker
+{
+    private string Имя;
+    private string Фамилия;
+    private double Ставка;
+    private int Дни;
+
+    public Worker(string имя, string фамилия, double ставка, int дни)
+    {
+        Имя = имя;
+        Фамилия = фамилия;
+        Ставка = ставка;
+        Дни = дни;
+    }
+
+    public string ПолучитьИмя()
+    {
+        return Имя;
+    }
+
+    public string ПолучитьФамилию()
+    {
+        return Фамилия;
+    }
+
+    public double ПолучитьСтавку()
+    {
+        return Ставка;
+    }
+
+    public int ПолучитьДни()
+    {
+        return Дни;
+    }
+
+    public double ПолучитьЗарплату()
+    {
+        return Ставка * Дни;
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        Worker работник = new Worker("Иван", "Иванов", 10.0, 29);
+        Console.WriteLine("Зарплата работника " + работник.ПолучитьИмя() + " " + работник.ПолучитьФамилию() + ": $" + работник.ПолучитьЗарплату());
+    }
+}
